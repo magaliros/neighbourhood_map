@@ -38,6 +38,14 @@ li.listItem {
   box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
+li.listItem:hover {
+  background: #3026FEFF;
+}
+
+li.listItem:focus {
+  background: #3026FEFF;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
