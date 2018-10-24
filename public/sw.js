@@ -13,8 +13,18 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
-        '/',
-        '/index.html'
+        "/",
+        "/index.html",
+        "../src/API/index.js",
+        "../src/component/ListItem/ListItem.js",
+        "../src/component/Map/Map.js",
+        "../src/component/SideBar/SideBar.js",
+        "../src/component/VenueList/VenueList.js",
+        "../src/App.css",
+        "../src/App.js",
+        "../src/index.js",
+        "../src/index.css",
+        "../src/registerSw.js"
       ]);
     })
   );
@@ -32,6 +42,17 @@ self.addEventListener('activate', function(event) {
           return caches.delete(cacheName);
         })
       );
+    })
+  );
+});
+
+/** Hijack fetch requests and respond accordingly */
+self.addEventListener('fetch', function(event) {
+
+  // Default behavior: respond with cached elements, if any, falling back to network.
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
     })
   );
 });
