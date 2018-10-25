@@ -62,7 +62,7 @@ neighborhood_map/
 
 ## Offline-First Considerations
 
-The service worker is only enabled in the [production environment](#deployment),
+The service worker is only enabled in the production environment,
 e.g. the output of `npm run build`. It's recommended that you do not enable an
 offline-first service worker in a development environment, as it can lead to
 frustration when previously cached assets are used and do not include the latest
