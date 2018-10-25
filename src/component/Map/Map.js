@@ -7,7 +7,7 @@ const MyMapComponent = withScriptjs(
     <GoogleMap
       defaultZoom={8}  
       zoom={props.zoom} 
-      defaultCenter={{ lat: -34.397, lng: 150.644 }}
+      defaultCenter={{ lat: parseFloat(-34.397), lng: parseFloat(150.644) }}
       center={props.center}
       >
         {props.markers && 
@@ -18,7 +18,7 @@ const MyMapComponent = withScriptjs(
               return (
                 <Marker 
                   key={idx} 
-                  position={{ lat: marker.lat, lng: marker.lng}} 
+                  position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng)}} 
                   onClick={() => props.handleMarkerClick(marker)}
                   animation={
                     arr.length === 1 
@@ -47,7 +47,7 @@ class Map extends React.Component {
   			isMarkerShown
   			googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCetyY3BHQDRK2ZWP33T9UB53FFGniq7RI"
   			loadingElement={<div style={{ height: `100%` }} />}
- 		 	  containerElement={<div className="map" />}
+ 		 	  containerElement={<div className="map" aria-label="Map container"/>}
   			mapElement={<div style={{ height: `100%` }} />}
 		/>
     );

@@ -39,6 +39,7 @@ class SideBar extends React.Component {
     			<input 
     				type={"search"} 
     				id={"search"} 
+    				aria-label= "search"
     				placeholder={"Filter Venues"}
     				onChange={this.handleChange} 
     			/>
