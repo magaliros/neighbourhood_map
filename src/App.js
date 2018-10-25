@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    SquareAPI.search({
+    SquareAPI.search({  
       near: "Kansas City,KS",
       query: "mexican",
       limit: 10
@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <div className="App" role="application" aria-label="Neighborhood Map">
         <SideBar role="contentInfo" aria-label="Mexican food in KS" {...this.state} handleListItemClick={this.handleListItemClick}/>
-        <Map aria-label="Google Maps" {...this.state} handleMarkerClick= {this.handleMarkerClick}/>
+        <Map id="map" {...this.state} handleMarkerClick= {this.handleMarkerClick}/>
       </div>
     );
   }
